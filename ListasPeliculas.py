@@ -9,10 +9,14 @@ while i<cantPelis:
     peliculas.append(peli)
     print(peliculas)
     i=i+1
-peliBuscar=input("Qué pelicula busas? ")
+peliBuscar=input("Qué pelicula buscas? ")
 if peliBuscar in peliculas:
     print("Si esta")
 else:
     print("No esta pero dejame la agrego")
     peliculas.append(peliBuscar)
     print(peliculas)
+#Trabajo extra
+peliBorar=input("Ingresa la pelicula que deseas borrar: ")
+peliculas.remove(peliBorar)
+print(peliculas)
