@@ -5,6 +5,7 @@ marcas=[]
 tipos=[]
 colores=[]
 espacio=0
+lugar=0
 while True:
  print("BIENVENIDOS A LA OSTICOCHERA")
  print("---//Menú Principal//---")
@@ -28,12 +29,13 @@ while True:
          print(" ")
          print("--//Agregar auto a la cochera//--")
          print(" ")
-         placa=input("Ingresa los 5 dígitos de las palcas: ")
-         marca=input("Ingresa la marca del auto: ")
-         tipo=input("Ingresa el tipo del auto: ")
+         placa=input("Ingresa los 5 dígitos de las palcas: "),
+         marca=input("Ingresa la marca del auto: "),
+         tipo=input("Ingresa el tipo del auto: "),
          color=input("Ingresa el color del auto: ")
          numCar=numCar+1
          i=i+1
+         lugar=lugar+1
          espacio=espacio+1
          placas.append(placa)
          marcas.append(marca)
@@ -41,11 +43,12 @@ while True:
          colores.append(color)
          print(" ")
          print("--//Auto agregado a la cochera//--")
+         print(f"Su lugar es el número:",lugar)
          print(" ")       
  elif opMenu ==2:
      print(" ")
      print("--//Mostrar los autos de la cochera//--")
-     if numCar<0:
+     if lugar==0:
         print("¡No hay autos en la cochera!")
         print(" ")
      else:
@@ -59,26 +62,31 @@ while True:
      print(" ")
      print("--//Mostrar precios de tarifa//--")
      print(" ")
-     print("10 min --> 7.5$")
-     print("30 min --> 22.5$")
-     print("1 hr --> 45$")
-     print("Por cada hr extra --> 45$ + 10$")
+     print("10 min --> $10")
+     print("30 min --> $30")
+     print("1 hr --> $60")
+     print("Por cada hr extra --> $60 + $5")
      print(" ")
  elif opMenu ==4:
      print(" ")
      print("--//Pagar tarifa//--")
-     tiempoMin=int(input("Ingresa la cantidad de minutos: "))
-     tiempoHr=int(input("Ingresa la cantidad de horas: "))
-     if tiempoHr==1:
-         tarifa=(tiempoMin*1.33333333)+(tiempoHr*45)
-         print(tarifa)
-     elif tiempoHr==0:
-         tarifa=(tiempoMin*1.33333333)+(tiempoHr*45)
-         print(tarifa)
-     else:
-         tarifa=(tiempoMin*1.33333333)+(tiempoHr*45+(tiempoHr*10-10))
-         print(tarifa)
      print(" ")
+     buscarPlaca=input("Ingresa los 5 dígitos de la placa:")
+     if buscarPlaca==placas(placa):
+         tiempoMin=int(input("Ingresa la cantidad de minutos: "))
+         tiempoHr=int(input("Ingresa la cantidad de horas: "))
+         if tiempoHr==1:
+             tarifa=(tiempoMin*1)+(tiempoHr*60)
+             print(f"El costo de tarifa es de: $",tarifa)
+         elif tiempoHr==0:
+             tarifa=(tiempoMin*1)+(tiempoHr*60)
+             print(f"El costo de tarifa es de: $",tarifa)
+         else:
+             tarifa=(tiempoMin*1)+(tiempoHr*60+(tiempoHr*5-5))
+             print(f"El costo de tarifa es de: $",tarifa)
+             print(" ")
+     else:
+         print("¡No hay placas registradas!")
  elif opMenu ==5:
      print("Saliendo del programa w...")
      print(" ")
